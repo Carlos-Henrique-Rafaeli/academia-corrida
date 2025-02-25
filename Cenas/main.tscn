@@ -1,0 +1,256 @@
+[gd_scene load_steps=8 format=3 uid="uid://bw244uii7urbo"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_tlkp4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_suod3"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cfopr"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hpml0"]
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ybifj"]
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1vw2"]
+bg_color = Color(0, 0, 0, 0.862745)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_4316d"]
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tlkp4")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.295297, 0.456236, 0.688548, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorTurn" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 384.0
+offset_top = 362.0
+offset_right = -384.0
+offset_bottom = -262.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 0, 0.490196)
+
+[node name="WinLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_right = 195.0
+offset_bottom = 128.0
+grow_horizontal = 2
+text = "Você Venceu!"
+label_settings = SubResource("LabelSettings_suod3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -232.0
+offset_right = 512.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="CPULabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Computador"
+label_settings = SubResource("LabelSettings_cfopr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PositionLabel1" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Posição: 0"
+label_settings = SubResource("LabelSettings_hpml0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar1" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1024, 64)
+layout_mode = 2
+max_value = 30.0
+step = 1.0
+allow_lesser = true
+show_percentage = false
+
+[node name="PlayerLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Jogador"
+label_settings = SubResource("LabelSettings_cfopr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PositionLabel2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Posição: 0"
+label_settings = SubResource("LabelSettings_hpml0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar2" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1024, 64)
+layout_mode = 2
+max_value = 30.0
+step = 1.0
+allow_lesser = true
+show_percentage = false
+
+[node name="StatsLabel1" type="Label" parent="."]
+layout_mode = 2
+offset_left = 512.0
+offset_top = 584.0
+offset_right = 768.0
+offset_bottom = 632.0
+text = "Andou: 0"
+label_settings = SubResource("LabelSettings_ybifj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RegrasPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 88.0
+offset_right = 272.0
+offset_bottom = 400.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_b1vw2")
+
+[node name="RegrasLabel" type="Label" parent="RegrasPanel"]
+layout_mode = 2
+offset_right = 256.0
+offset_bottom = 309.0
+text = "Avanço extra: Se o competidor parar em uma posição específica (5, 10, 15), ele avança +3 casas.
+
+Recuo: Se o competidor parar em outra posição específica (7, 13, 20), ele recua -2 casas.
+
+Rodada extra: Se o competidor tirar 6 no dado, ele ganha uma rodada extra."
+label_settings = SubResource("LabelSettings_4316d")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="DadoButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -80.0
+offset_right = 128.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+text = "Jogar Dado"
+
+[node name="DadoTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 584.0
+offset_right = 952.0
+offset_bottom = 696.0
+expand_mode = 1
+
+[node name="ReplayButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 368.0
+offset_top = -80.0
+offset_right = 624.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+text = "Jogar Novamente"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -624.0
+offset_top = -80.0
+offset_right = -368.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+text = "Sair do Programa"
+
+[node name="RulesButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -624.0
+offset_top = -704.0
+offset_right = -368.0
+offset_bottom = -640.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+text = "Regras"
+
+[node name="CPUTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="pressed" from="DadoButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ReplayButton" to="." method="_on_replay_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="RulesButton" to="." method="_on_rules_button_pressed"]
+[connection signal="timeout" from="CPUTimer" to="." method="_on_cpu_timer_timeout"]
